@@ -1,0 +1,786 @@
+ \documentclass[11pt]{report}
+
+\usepackage[T2A]{fontenc}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[russian]{babel}
+
+\usepackage{amsmath,amssymb}
+
+\usepackage{graphicx}
+
+\graphicspath{ {d:/HSE/OR/CW/CW5pict/} }
+
+\oddsidemargin=-19mm
+
+\topmargin=-30mm
+
+\textheight 26cm 
+
+\hsize 18cm
+
+\textwidth 20cm
+
+\begin{document}
+
+\pagestyle{empty}
+
+{\bf Индивидуальное задание 4.}
+
+
+Дана СЛАУ $AX = b$, 
+Решить СЛАУ  с помощью  QR разложения матрицы $A$.
+
+
+N1
+\begin{align*}
+ A = \left[\begin{matrix}6 & -5 & -9 & -6\\2 & 3 & 9 & -8\\8 & 3 & 15 & -13\\6 & 0 & 6 & -5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-7\\8\\10\\4\end{matrix}\right]. 
+ \end{align*}
+N2
+\begin{align*}
+ A = \left[\begin{matrix}0 & 0 & -1 & 1\\-7 & -1 & -3 & -3\\-16 & 4 & -4 & -3\\-9 & 5 & -1 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\8\\12\\6\end{matrix}\right]. 
+ \end{align*}
+N3
+\begin{align*}
+ A = \left[\begin{matrix}9 & -8 & 4 & 7\\1 & 4 & 3 & 4\\16 & 2 & 17 & 23\\15 & -2 & 14 & 19\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-6\\-9\\-31\\-16\end{matrix}\right]. 
+ \end{align*}
+N4
+\begin{align*}
+ A = \left[\begin{matrix}-2 & 6 & 3 & -2\\-1 & -6 & -1 & 6\\3 & -12 & -6 & 12\\4 & -6 & -5 & 6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-7\\-6\\-24\\-14\end{matrix}\right]. 
+ \end{align*}
+N5
+\begin{align*}
+ A = \left[\begin{matrix}-8 & -9 & 5 & 9\\4 & -7 & -1 & 4\\-2 & -21 & 10 & 13\\-6 & -14 & 11 & 9\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\9\\17\\14\end{matrix}\right]. 
+ \end{align*}
+N6
+\begin{align*}
+ A = \left[\begin{matrix}-4 & 2 & -1 & 9\\8 & 9 & 8 & 8\\13 & 17 & 13 & 34\\5 & 8 & 5 & 26\end{matrix}\right],
+\qquad b = \left[\begin{matrix}8\\-3\\5\\12\end{matrix}\right]. 
+ \end{align*}
+N7
+\begin{align*}
+ A = \left[\begin{matrix}2 & -1 & -7 & -2\\-3 & -1 & 5 & -2\\0 & -5 & 5 & -7\\3 & -4 & 0 & -5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\-8\\-33\\-22\end{matrix}\right]. 
+ \end{align*}
+N8
+\begin{align*}
+ A = \left[\begin{matrix}-1 & -3 & -8 & 2\\-7 & -6 & 5 & -6\\-6 & -22 & 11 & -2\\1 & -16 & 6 & 4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\6\\17\\13\end{matrix}\right]. 
+ \end{align*}
+N9
+\begin{align*}
+ A = \left[\begin{matrix}4 & 3 & -8 & 7\\5 & 3 & -8 & 3\\11 & 1 & -28 & 18\\6 & -2 & -20 & 15\end{matrix}\right],
+\qquad b = \left[\begin{matrix}0\\2\\10\\12\end{matrix}\right]. 
+ \end{align*}
+N10
+\begin{align*}
+ A = \left[\begin{matrix}-9 & 6 & -8 & 7\\-9 & 4 & 3 & -3\\-20 & 23 & 7 & 0\\-11 & 19 & 4 & 3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-1\\0\\7\end{matrix}\right]. 
+ \end{align*}
+N11
+\begin{align*}
+ A = \left[\begin{matrix}9 & -4 & -5 & -2\\5 & 2 & 1 & -1\\24 & 3 & 6 & 4\\19 & 1 & 5 & 5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-9\\1\\0\\0\end{matrix}\right]. 
+ \end{align*}
+N12
+\begin{align*}
+ A = \left[\begin{matrix}-7 & 1 & 6 & -1\\8 & -1 & 9 & -6\\12 & -9 & 32 & -13\\4 & -8 & 23 & -7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}0\\-1\\-9\\-5\end{matrix}\right]. 
+ \end{align*}
+N13
+\begin{align*}
+ A = \left[\begin{matrix}-4 & -3 & 2 & -5\\-8 & 4 & -3 & 6\\-16 & -4 & -6 & 14\\-8 & -8 & -3 & 8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\9\\11\\4\end{matrix}\right]. 
+ \end{align*}
+N14
+\begin{align*}
+ A = \left[\begin{matrix}-6 & 6 & -3 & -7\\-2 & 7 & -9 & 5\\-7 & 16 & -22 & 8\\-5 & 9 & -13 & 3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-6\\-16\\-4\end{matrix}\right]. 
+ \end{align*}
+N15
+\begin{align*}
+ A = \left[\begin{matrix}-2 & 0 & 6 & 4\\5 & -6 & 9 & 6\\0 & -13 & 33 & 23\\-5 & -7 & 24 & 17\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\8\\25\\23\end{matrix}\right]. 
+ \end{align*}
+N16
+\begin{align*}
+ A = \left[\begin{matrix}-5 & -8 & 0 & -7\\-3 & -6 & -9 & 4\\-11 & -29 & -13 & 2\\-8 & -23 & -4 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}0\\1\\-6\\-2\end{matrix}\right]. 
+ \end{align*}
+N17
+\begin{align*}
+ A = \left[\begin{matrix}-7 & -3 & -2 & 1\\-5 & -3 & -8 & 0\\-8 & -7 & -26 & -3\\-3 & -4 & -18 & -3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\9\\18\\13\end{matrix}\right]. 
+ \end{align*}
+N18
+\begin{align*}
+ A = \left[\begin{matrix}-2 & -2 & 2 & -1\\1 & -2 & -9 & -8\\0 & -1 & -12 & -10\\-1 & 1 & -3 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-1\\-6\\0\end{matrix}\right]. 
+ \end{align*}
+N19
+\begin{align*}
+ A = \left[\begin{matrix}4 & 1 & 2 & -7\\-5 & -5 & -5 & 8\\-15 & -1 & 0 & 0\\-10 & 4 & 5 & -8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\-9\\-29\\-19\end{matrix}\right]. 
+ \end{align*}
+N20
+\begin{align*}
+ A = \left[\begin{matrix}5 & 6 & -9 & -4\\-3 & -1 & -1 & 6\\-1 & 1 & -5 & 1\\2 & 2 & -4 & -5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-4\\6\\2\\-2\end{matrix}\right]. 
+ \end{align*}
+N21
+\begin{align*}
+ A = \left[\begin{matrix}9 & 0 & 1 & -6\\7 & -1 & 1 & -2\\29 & -10 & 4 & -14\\22 & -9 & 3 & -12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\3\\-6\\-8\end{matrix}\right]. 
+ \end{align*}
+N22
+\begin{align*}
+ A = \left[\begin{matrix}-3 & 7 & 5 & -4\\-7 & 3 & -8 & -2\\-14 & 18 & -11 & -17\\-7 & 15 & -3 & -15\end{matrix}\right],
+\qquad b = \left[\begin{matrix}4\\5\\23\\20\end{matrix}\right]. 
+ \end{align*}
+N23
+\begin{align*}
+ A = \left[\begin{matrix}5 & -2 & 1 & 5\\-7 & 8 & 6 & 0\\-10 & 14 & 5 & 10\\-3 & 6 & -1 & 10\end{matrix}\right],
+\qquad b = \left[\begin{matrix}7\\6\\19\\18\end{matrix}\right]. 
+ \end{align*}
+N24
+\begin{align*}
+ A = \left[\begin{matrix}-1 & 9 & 4 & -8\\4 & 1 & 7 & 6\\1 & 13 & 16 & -4\\-3 & 12 & 9 & -10\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-4\\-8\\-2\end{matrix}\right]. 
+ \end{align*}
+N25
+\begin{align*}
+ A = \left[\begin{matrix}-7 & -6 & 8 & -1\\2 & 1 & 5 & -5\\-10 & -5 & 12 & -14\\-12 & -6 & 7 & -9\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\-6\\-7\\1\end{matrix}\right]. 
+ \end{align*}
+N26
+\begin{align*}
+ A = \left[\begin{matrix}0 & -4 & -8 & -5\\-2 & -9 & 4 & -9\\-12 & -30 & -9 & -16\\-10 & -21 & -13 & -7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}7\\7\\15\\12\end{matrix}\right]. 
+ \end{align*}
+N27
+\begin{align*}
+ A = \left[\begin{matrix}6 & -9 & 3 & -1\\8 & -6 & 5 & 7\\24 & -18 & 15 & 14\\16 & -12 & 10 & 7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-6\\-9\\-30\\-17\end{matrix}\right]. 
+ \end{align*}
+N28
+\begin{align*}
+ A = \left[\begin{matrix}3 & 5 & -2 & 4\\6 & 6 & -1 & 8\\21 & 20 & -7 & 18\\15 & 14 & -6 & 10\end{matrix}\right],
+\qquad b = \left[\begin{matrix}7\\5\\21\\18\end{matrix}\right]. 
+ \end{align*}
+N29
+\begin{align*}
+ A = \left[\begin{matrix}0 & -9 & -9 & -1\\-4 & 4 & -2 & -8\\0 & -6 & -17 & -11\\4 & -10 & -15 & -3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\5\\15\\12\end{matrix}\right]. 
+ \end{align*}
+N30
+\begin{align*}
+ A = \left[\begin{matrix}0 & -3 & -4 & -3\\-6 & -2 & -2 & 7\\-10 & -15 & -5 & 8\\-4 & -13 & -3 & 1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\9\\11\\7\end{matrix}\right]. 
+ \end{align*}
+N31
+\begin{align*}
+ A = \left[\begin{matrix}4 & 1 & 0 & 6\\-3 & -7 & 0 & -5\\-6 & -19 & -7 & 2\\-3 & -12 & -7 & 7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\4\\4\\6\end{matrix}\right]. 
+ \end{align*}
+N32
+\begin{align*}
+ A = \left[\begin{matrix}-4 & 4 & 9 & 4\\-5 & 8 & -6 & 1\\-22 & 18 & -6 & 10\\-17 & 10 & 0 & 9\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-6\\1\\-11\\-7\end{matrix}\right]. 
+ \end{align*}
+N33
+\begin{align*}
+ A = \left[\begin{matrix}9 & -7 & 0 & 0\\3 & 6 & -5 & 3\\23 & 0 & -10 & -1\\20 & -6 & -5 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\4\\7\\8\end{matrix}\right]. 
+ \end{align*}
+N34
+\begin{align*}
+ A = \left[\begin{matrix}-6 & 1 & 3 & 0\\1 & 3 & -8 & -9\\-9 & 12 & -20 & -25\\-10 & 9 & -12 & -16\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-5\\-3\\5\end{matrix}\right]. 
+ \end{align*}
+N35
+\begin{align*}
+ A = \left[\begin{matrix}1 & 8 & 4 & 1\\-8 & 8 & -8 & -6\\-24 & 22 & -14 & -19\\-16 & 14 & -6 & -13\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\-2\\-1\\5\end{matrix}\right]. 
+ \end{align*}
+N36
+\begin{align*}
+ A = \left[\begin{matrix}3 & 3 & 4 & 7\\-5 & 9 & 1 & 9\\-16 & 14 & 1 & 22\\-11 & 5 & 0 & 13\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-7\\-7\\-12\\-2\end{matrix}\right]. 
+ \end{align*}
+N37
+\begin{align*}
+ A = \left[\begin{matrix}-7 & -7 & -5 & -9\\8 & -4 & -9 & -2\\12 & -18 & -23 & -5\\4 & -14 & -14 & -3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\-3\\-10\\-4\end{matrix}\right]. 
+ \end{align*}
+N38
+\begin{align*}
+ A = \left[\begin{matrix}5 & -2 & -5 & 5\\2 & -7 & 8 & 6\\7 & -16 & 19 & 14\\5 & -9 & 11 & 8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\9\\23\\16\end{matrix}\right]. 
+ \end{align*}
+N39
+\begin{align*}
+ A = \left[\begin{matrix}-5 & 8 & 4 & -6\\-5 & 9 & -9 & 1\\-8 & 35 & -13 & -1\\-3 & 26 & -4 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}8\\-6\\-9\\-2\end{matrix}\right]. 
+ \end{align*}
+N40
+\begin{align*}
+ A = \left[\begin{matrix}-3 & 9 & 7 & -9\\7 & 8 & -5 & 2\\5 & 20 & 1 & 0\\-2 & 12 & 6 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\3\\7\\8\end{matrix}\right]. 
+ \end{align*}
+N41
+\begin{align*}
+ A = \left[\begin{matrix}9 & 3 & 7 & -7\\-2 & 5 & -8 & -2\\2 & 12 & 0 & -6\\4 & 7 & 8 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-4\\-2\\6\end{matrix}\right]. 
+ \end{align*}
+N42
+\begin{align*}
+ A = \left[\begin{matrix}2 & 7 & 6 & 3\\2 & 6 & -3 & 7\\1 & 28 & -1 & 21\\-1 & 22 & 2 & 14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-4\\-8\\-1\end{matrix}\right]. 
+ \end{align*}
+N43
+\begin{align*}
+ A = \left[\begin{matrix}-2 & 6 & -8 & -6\\1 & 8 & 8 & 9\\-7 & 14 & 1 & 21\\-8 & 6 & -7 & 12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-3\\1\\8\end{matrix}\right]. 
+ \end{align*}
+N44
+\begin{align*}
+ A = \left[\begin{matrix}-1 & -3 & 2 & 4\\6 & -9 & -9 & -7\\14 & -20 & -9 & -5\\8 & -11 & 0 & 2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\0\\4\\6\end{matrix}\right]. 
+ \end{align*}
+N45
+\begin{align*}
+ A = \left[\begin{matrix}5 & 7 & -4 & -8\\-9 & 7 & 7 & 2\\-10 & 26 & 7 & 3\\-1 & 19 & 0 & 1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\5\\16\\17\end{matrix}\right]. 
+ \end{align*}
+N46
+\begin{align*}
+ A = \left[\begin{matrix}1 & -1 & 7 & 2\\4 & 7 & 6 & -5\\17 & 22 & 13 & 1\\13 & 15 & 7 & 6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}9\\-8\\-8\\3\end{matrix}\right]. 
+ \end{align*}
+N47
+\begin{align*}
+ A = \left[\begin{matrix}-3 & 5 & 6 & 3\\4 & 4 & 3 & 8\\7 & 11 & 12 & 10\\3 & 7 & 9 & 2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\-1\\-5\\-2\end{matrix}\right]. 
+ \end{align*}
+N48
+\begin{align*}
+ A = \left[\begin{matrix}3 & 2 & -5 & 7\\-6 & 2 & 1 & 6\\-16 & 12 & 0 & 18\\-10 & 10 & -1 & 12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\-5\\-10\\-2\end{matrix}\right]. 
+ \end{align*}
+N49
+\begin{align*}
+ A = \left[\begin{matrix}6 & -5 & -9 & -8\\-4 & -1 & -6 & 1\\-10 & -4 & -14 & -6\\-6 & -3 & -8 & -7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\2\\0\\4\end{matrix}\right]. 
+ \end{align*}
+N50
+\begin{align*}
+ A = \left[\begin{matrix}-2 & -1 & 9 & -2\\4 & -2 & 5 & 6\\-3 & -9 & 10 & 10\\-7 & -7 & 5 & 4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-9\\-23\\-11\end{matrix}\right]. 
+ \end{align*}
+N51
+\begin{align*}
+ A = \left[\begin{matrix}8 & -9 & -8 & -2\\4 & 0 & 0 & 4\\16 & -6 & -1 & 7\\12 & -6 & -1 & 3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}9\\-1\\5\\10\end{matrix}\right]. 
+ \end{align*}
+N52
+\begin{align*}
+ A = \left[\begin{matrix}-9 & -1 & -7 & 2\\8 & 0 & 2 & 4\\8 & 2 & -8 & 17\\0 & 2 & -10 & 13\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-7\\-5\\-12\\-3\end{matrix}\right]. 
+ \end{align*}
+N53
+\begin{align*}
+ A = \left[\begin{matrix}-4 & -1 & 6 & -6\\-6 & -9 & 3 & 0\\-25 & -10 & 18 & -11\\-19 & -1 & 15 & -11\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\2\\-4\\-2\end{matrix}\right]. 
+ \end{align*}
+N54
+\begin{align*}
+ A = \left[\begin{matrix}4 & -8 & -2 & -5\\3 & -7 & 5 & -9\\8 & -30 & 7 & -32\\5 & -23 & 2 & -23\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\4\\18\\17\end{matrix}\right]. 
+ \end{align*}
+N55
+\begin{align*}
+ A = \left[\begin{matrix}-8 & 1 & -3 & 4\\3 & 3 & -5 & 6\\5 & 15 & -22 & 22\\2 & 12 & -17 & 16\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-9\\7\\9\\5\end{matrix}\right]. 
+ \end{align*}
+N56
+\begin{align*}
+ A = \left[\begin{matrix}3 & 7 & -1 & 9\\0 & -8 & 6 & 1\\4 & -17 & 20 & 19\\4 & -9 & 14 & 18\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\3\\10\\13\end{matrix}\right]. 
+ \end{align*}
+N57
+\begin{align*}
+ A = \left[\begin{matrix}3 & 6 & 9 & 9\\-4 & 1 & -7 & -6\\-13 & 13 & 4 & 2\\-9 & 12 & 11 & 8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\1\\-8\\-6\end{matrix}\right]. 
+ \end{align*}
+N58
+\begin{align*}
+ A = \left[\begin{matrix}-6 & -6 & 3 & -1\\-7 & 8 & 3 & 7\\-18 & 15 & 7 & 11\\-11 & 7 & 4 & 4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\2\\10\\13\end{matrix}\right]. 
+ \end{align*}
+N59
+\begin{align*}
+ A = \left[\begin{matrix}-4 & 5 & -3 & 7\\6 & 1 & -6 & -6\\8 & 7 & -19 & 1\\2 & 6 & -13 & 7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\6\\10\\10\end{matrix}\right]. 
+ \end{align*}
+N60
+\begin{align*}
+ A = \left[\begin{matrix}0 & 5 & -1 & 5\\-3 & -8 & -9 & -7\\2 & -4 & -18 & -7\\5 & 4 & -9 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-9\\-3\\-15\\-8\end{matrix}\right]. 
+ \end{align*}
+N61
+\begin{align*}
+ A = \left[\begin{matrix}-4 & 6 & 5 & -1\\-8 & 4 & 2 & 4\\-20 & 12 & 14 & -2\\-12 & 8 & 12 & -6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}9\\2\\10\\9\end{matrix}\right]. 
+ \end{align*}
+N62
+\begin{align*}
+ A = \left[\begin{matrix}6 & 1 & 8 & -4\\-8 & -8 & 7 & 0\\-11 & -23 & 31 & -4\\-3 & -15 & 24 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-1\\7\\9\end{matrix}\right]. 
+ \end{align*}
+N63
+\begin{align*}
+ A = \left[\begin{matrix}0 & 9 & -9 & 5\\-8 & -6 & -9 & 6\\-12 & -8 & -34 & 9\\-4 & -2 & -25 & 3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\-2\\9\\16\end{matrix}\right]. 
+ \end{align*}
+N64
+\begin{align*}
+ A = \left[\begin{matrix}6 & -9 & 8 & -7\\-7 & -5 & 2 & 4\\-17 & -24 & 20 & 2\\-10 & -19 & 18 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-4\\-6\\-17\\-10\end{matrix}\right]. 
+ \end{align*}
+N65
+\begin{align*}
+ A = \left[\begin{matrix}1 & 7 & 1 & -3\\8 & -9 & 5 & 6\\12 & -17 & 17 & 7\\4 & -8 & 12 & 1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\-8\\-16\\-6\end{matrix}\right]. 
+ \end{align*}
+N66
+\begin{align*}
+ A = \left[\begin{matrix}2 & 8 & -2 & -6\\2 & -9 & 0 & 0\\2 & -8 & 4 & -15\\0 & 1 & 4 & -15\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\7\\8\\3\end{matrix}\right]. 
+ \end{align*}
+N67
+\begin{align*}
+ A = \left[\begin{matrix}-2 & 1 & 7 & -7\\-2 & 4 & 5 & -9\\-5 & 1 & 13 & -33\\-3 & -3 & 8 & -24\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\-1\\-4\\0\end{matrix}\right]. 
+ \end{align*}
+N68
+\begin{align*}
+ A = \left[\begin{matrix}-9 & -2 & -6 & 3\\-4 & 7 & -5 & 4\\-18 & 9 & -10 & 5\\-14 & 2 & -5 & 1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\-8\\-2\\11\end{matrix}\right]. 
+ \end{align*}
+N69
+\begin{align*}
+ A = \left[\begin{matrix}-5 & -8 & -9 & -5\\-3 & 4 & -8 & 0\\-7 & 8 & -22 & -14\\-4 & 4 & -14 & -14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\8\\0\\-4\end{matrix}\right]. 
+ \end{align*}
+N70
+\begin{align*}
+ A = \left[\begin{matrix}-7 & 7 & -9 & 8\\5 & -1 & 4 & 8\\-1 & -2 & -4 & 28\\-6 & -1 & -8 & 20\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\6\\6\\3\end{matrix}\right]. 
+ \end{align*}
+N71
+\begin{align*}
+ A = \left[\begin{matrix}0 & 9 & -5 & 8\\1 & -6 & 7 & 2\\-3 & 1 & 16 & 9\\-4 & 7 & 9 & 7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}8\\3\\12\\11\end{matrix}\right]. 
+ \end{align*}
+N72
+\begin{align*}
+ A = \left[\begin{matrix}3 & -9 & 1 & -7\\1 & 8 & 0 & 2\\3 & 2 & -6 & -2\\2 & -6 & -6 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\7\\2\\1\end{matrix}\right]. 
+ \end{align*}
+N73
+\begin{align*}
+ A = \left[\begin{matrix}-5 & -2 & 7 & -3\\6 & 9 & -3 & -3\\16 & 15 & 2 & -7\\10 & 6 & 5 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\0\\-4\\-3\end{matrix}\right]. 
+ \end{align*}
+N74
+\begin{align*}
+ A = \left[\begin{matrix}8 & 4 & -6 & 5\\3 & -9 & -6 & -8\\12 & -15 & -24 & -20\\9 & -6 & -18 & -12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-4\\-10\\0\end{matrix}\right]. 
+ \end{align*}
+N75
+\begin{align*}
+ A = \left[\begin{matrix}0 & 1 & 8 & 3\\8 & -3 & 9 & 1\\18 & -4 & 20 & 12\\10 & -1 & 11 & 11\end{matrix}\right],
+\qquad b = \left[\begin{matrix}9\\-9\\-13\\0\end{matrix}\right]. 
+ \end{align*}
+N76
+\begin{align*}
+ A = \left[\begin{matrix}-1 & -1 & -9 & 2\\-2 & -7 & -1 & 9\\2 & -24 & -6 & 14\\4 & -17 & -5 & 5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\8\\19\\16\end{matrix}\right]. 
+ \end{align*}
+N77
+\begin{align*}
+ A = \left[\begin{matrix}-4 & -8 & -8 & -8\\-1 & 9 & 2 & 2\\2 & 4 & 2 & -9\\3 & -5 & 0 & -11\end{matrix}\right],
+\qquad b = \left[\begin{matrix}8\\-5\\-10\\-1\end{matrix}\right]. 
+ \end{align*}
+N78
+\begin{align*}
+ A = \left[\begin{matrix}-6 & -6 & -3 & -1\\-9 & 2 & -2 & 1\\-28 & 2 & -7 & -3\\-19 & 0 & -5 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}7\\-9\\-9\\6\end{matrix}\right]. 
+ \end{align*}
+N79
+\begin{align*}
+ A = \left[\begin{matrix}-2 & -7 & 1 & 9\\0 & 1 & 9 & 8\\5 & 2 & 20 & 23\\5 & 1 & 11 & 15\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\-5\\-10\\0\end{matrix}\right]. 
+ \end{align*}
+N80
+\begin{align*}
+ A = \left[\begin{matrix}9 & 6 & -3 & 0\\-8 & -6 & -3 & -8\\0 & -12 & -1 & -12\\8 & -6 & 2 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-8\\-9\\1\end{matrix}\right]. 
+ \end{align*}
+N81
+\begin{align*}
+ A = \left[\begin{matrix}-2 & -3 & 1 & -4\\2 & 0 & 9 & 7\\2 & 2 & 27 & 12\\0 & 2 & 18 & 5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\-7\\-6\\3\end{matrix}\right]. 
+ \end{align*}
+N82
+\begin{align*}
+ A = \left[\begin{matrix}6 & 8 & 3 & -8\\-7 & 4 & 4 & 0\\-3 & 20 & 2 & -12\\4 & 16 & -2 & -12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}4\\-5\\-9\\1\end{matrix}\right]. 
+ \end{align*}
+N83
+\begin{align*}
+ A = \left[\begin{matrix}8 & 2 & -2 & -9\\5 & -9 & 3 & -9\\12 & -22 & 8 & -30\\7 & -13 & 5 & -21\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\0\\-8\\-4\end{matrix}\right]. 
+ \end{align*}
+N84
+\begin{align*}
+ A = \left[\begin{matrix}3 & -3 & 9 & 5\\2 & -1 & -6 & 6\\13 & -10 & 0 & 17\\11 & -9 & 6 & 11\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\5\\1\\-1\end{matrix}\right]. 
+ \end{align*}
+N85
+\begin{align*}
+ A = \left[\begin{matrix}5 & 3 & 2 & -6\\1 & -9 & 5 & 0\\-1 & -19 & 7 & -9\\-2 & -10 & 2 & -9\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\-3\\-5\\4\end{matrix}\right]. 
+ \end{align*}
+N86
+\begin{align*}
+ A = \left[\begin{matrix}-8 & 4 & 2 & -7\\-7 & -4 & -1 & -2\\-26 & 4 & 5 & -12\\-19 & 8 & 6 & -10\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\5\\10\\6\end{matrix}\right]. 
+ \end{align*}
+N87
+\begin{align*}
+ A = \left[\begin{matrix}-1 & 1 & 0 & 5\\-5 & -5 & 0 & -6\\-10 & -7 & 4 & -8\\-5 & -2 & 4 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-6\\0\\1\\7\end{matrix}\right]. 
+ \end{align*}
+N88
+\begin{align*}
+ A = \left[\begin{matrix}9 & 7 & 0 & -6\\0 & 1 & -9 & -1\\13 & 14 & -25 & 1\\13 & 13 & -16 & 2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-7\\-8\\-29\\-16\end{matrix}\right]. 
+ \end{align*}
+N89
+\begin{align*}
+ A = \left[\begin{matrix}-7 & 8 & 1 & -9\\0 & 1 & 0 & 7\\-8 & 8 & -8 & 5\\-8 & 7 & -8 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\6\\13\\12\end{matrix}\right]. 
+ \end{align*}
+N90
+\begin{align*}
+ A = \left[\begin{matrix}-2 & 0 & 5 & 5\\7 & 7 & -6 & -1\\15 & 8 & -16 & 5\\8 & 1 & -10 & 6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}8\\9\\20\\17\end{matrix}\right]. 
+ \end{align*}
+N91
+\begin{align*}
+ A = \left[\begin{matrix}7 & -6 & -8 & -1\\0 & -5 & 5 & 2\\2 & -12 & 2 & 6\\2 & -7 & -3 & 4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\3\\1\\0\end{matrix}\right]. 
+ \end{align*}
+N92
+\begin{align*}
+ A = \left[\begin{matrix}-5 & 1 & 1 & -7\\-8 & 1 & 6 & 2\\-15 & 3 & 22 & -6\\-7 & 2 & 16 & -8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}9\\-6\\6\\16\end{matrix}\right]. 
+ \end{align*}
+N93
+\begin{align*}
+ A = \left[\begin{matrix}7 & 2 & -1 & 2\\-8 & -9 & -9 & -5\\-16 & -25 & -27 & -5\\-8 & -16 & -18 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-4\\1\\3\\3\end{matrix}\right]. 
+ \end{align*}
+N94
+\begin{align*}
+ A = \left[\begin{matrix}7 & 7 & -2 & 0\\2 & -5 & 2 & -4\\7 & -3 & -7 & -6\\5 & 2 & -9 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}0\\-9\\-9\\5\end{matrix}\right]. 
+ \end{align*}
+N95
+\begin{align*}
+ A = \left[\begin{matrix}-9 & 6 & -4 & -3\\-8 & -9 & -7 & -6\\-24 & -14 & -23 & -20\\-16 & -5 & -16 & -14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}8\\5\\15\\16\end{matrix}\right]. 
+ \end{align*}
+N96
+\begin{align*}
+ A = \left[\begin{matrix}5 & -1 & 7 & 1\\-4 & -3 & -9 & -8\\-3 & -13 & -15 & -19\\1 & -10 & -6 & -11\end{matrix}\right],
+\qquad b = \left[\begin{matrix}9\\-4\\0\\10\end{matrix}\right]. 
+ \end{align*}
+N97
+\begin{align*}
+ A = \left[\begin{matrix}0 & -8 & 2 & -3\\6 & 0 & 7 & 3\\8 & -8 & 24 & 9\\2 & -8 & 17 & 6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\8\\10\\8\end{matrix}\right]. 
+ \end{align*}
+N98
+\begin{align*}
+ A = \left[\begin{matrix}4 & 8 & 0 & -9\\-8 & 2 & -2 & -4\\-5 & 12 & -9 & -15\\3 & 10 & -7 & -11\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\3\\11\\9\end{matrix}\right]. 
+ \end{align*}
+N99
+\begin{align*}
+ A = \left[\begin{matrix}4 & -8 & 5 & -2\\5 & -9 & -8 & 1\\17 & -30 & -6 & 7\\12 & -21 & 2 & 6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\-4\\-23\\-14\end{matrix}\right]. 
+ \end{align*}
+N100
+\begin{align*}
+ A = \left[\begin{matrix}2 & 8 & 9 & 2\\-3 & 4 & -2 & -8\\-13 & 9 & -3 & -18\\-10 & 5 & -1 & -10\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\5\\-4\\-7\end{matrix}\right]. 
+ \end{align*}
+N101
+\begin{align*}
+ A = \left[\begin{matrix}2 & -7 & 2 & 8\\5 & 8 & 5 & 4\\4 & 11 & 10 & 16\\-1 & 3 & 5 & 12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\3\\3\\6\end{matrix}\right]. 
+ \end{align*}
+N102
+\begin{align*}
+ A = \left[\begin{matrix}4 & 9 & -6 & -3\\-1 & 4 & 1 & -6\\6 & 25 & -10 & -20\\7 & 21 & -11 & -14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\9\\28\\25\end{matrix}\right]. 
+ \end{align*}
+N103
+\begin{align*}
+ A = \left[\begin{matrix}3 & 0 & 8 & 5\\-9 & 0 & -9 & -4\\-19 & 7 & -10 & -3\\-10 & 7 & -1 & 1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\-4\\3\\9\end{matrix}\right]. 
+ \end{align*}
+N104
+\begin{align*}
+ A = \left[\begin{matrix}-2 & 5 & -5 & -3\\8 & -9 & -6 & 8\\9 & -6 & -26 & 15\\1 & 3 & -20 & 7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-4\\-2\\1\\9\end{matrix}\right]. 
+ \end{align*}
+N105
+\begin{align*}
+ A = \left[\begin{matrix}-9 & -1 & 3 & 4\\0 & -9 & 8 & 3\\-7 & -23 & 17 & 3\\-7 & -14 & 9 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-6\\-8\\-28\\-17\end{matrix}\right]. 
+ \end{align*}
+N106
+\begin{align*}
+ A = \left[\begin{matrix}0 & 6 & 7 & 3\\-7 & -1 & 6 & 3\\-21 & 4 & 17 & 9\\-14 & 5 & 11 & 6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\9\\23\\16\end{matrix}\right]. 
+ \end{align*}
+N107
+\begin{align*}
+ A = \left[\begin{matrix}-8 & 0 & -9 & 5\\8 & 7 & 2 & 4\\3 & 18 & -5 & 12\\-5 & 11 & -7 & 8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\-3\\5\\11\end{matrix}\right]. 
+ \end{align*}
+N108
+\begin{align*}
+ A = \left[\begin{matrix}-7 & -4 & 1 & 4\\3 & -3 & 8 & 4\\-3 & -10 & 22 & 19\\-6 & -7 & 14 & 15\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-9\\-8\\-31\\-19\end{matrix}\right]. 
+ \end{align*}
+N109
+\begin{align*}
+ A = \left[\begin{matrix}-2 & -8 & 5 & 8\\-1 & -5 & 3 & -9\\5 & -19 & 9 & -1\\6 & -14 & 6 & 8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\0\\5\\10\end{matrix}\right]. 
+ \end{align*}
+N110
+\begin{align*}
+ A = \left[\begin{matrix}8 & 8 & -3 & 1\\9 & 0 & -4 & 3\\30 & 5 & -9 & 9\\21 & 5 & -5 & 6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\8\\17\\15\end{matrix}\right]. 
+ \end{align*}
+N111
+\begin{align*}
+ A = \left[\begin{matrix}8 & -6 & -6 & 8\\-3 & 3 & 2 & -3\\-6 & 7 & 3 & -3\\-3 & 4 & 1 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}2\\7\\12\\11\end{matrix}\right]. 
+ \end{align*}
+N112
+\begin{align*}
+ A = \left[\begin{matrix}6 & -3 & -3 & -3\\-8 & -9 & -9 & -8\\-18 & -12 & -29 & -10\\-10 & -3 & -20 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-7\\-17\\-6\end{matrix}\right]. 
+ \end{align*}
+N113
+\begin{align*}
+ A = \left[\begin{matrix}1 & 5 & -9 & 4\\7 & 4 & 3 & 0\\23 & 13 & -11 & -3\\16 & 9 & -14 & -3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\-6\\-24\\-15\end{matrix}\right]. 
+ \end{align*}
+N114
+\begin{align*}
+ A = \left[\begin{matrix}-6 & 2 & -8 & -8\\0 & -2 & 7 & 8\\-3 & -10 & 12 & 11\\-3 & -8 & 5 & 3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\2\\2\\3\end{matrix}\right]. 
+ \end{align*}
+N115
+\begin{align*}
+ A = \left[\begin{matrix}3 & 0 & 9 & -9\\-4 & -9 & 2 & -4\\-2 & -26 & 4 & -16\\2 & -17 & 2 & -12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\-4\\-6\\1\end{matrix}\right]. 
+ \end{align*}
+N116
+\begin{align*}
+ A = \left[\begin{matrix}5 & -6 & -1 & -6\\2 & -7 & 9 & 9\\11 & -21 & 21 & 19\\9 & -14 & 12 & 10\end{matrix}\right],
+\qquad b = \left[\begin{matrix}1\\-1\\-9\\-3\end{matrix}\right]. 
+ \end{align*}
+N117
+\begin{align*}
+ A = \left[\begin{matrix}-3 & -5 & 5 & 8\\-7 & 8 & 0 & -3\\-18 & 10 & 6 & -4\\-11 & 2 & 6 & -1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\-3\\7\\14\end{matrix}\right]. 
+ \end{align*}
+N118
+\begin{align*}
+ A = \left[\begin{matrix}-7 & 4 & 4 & 4\\4 & 2 & 4 & 1\\8 & 17 & 11 & 15\\4 & 15 & 7 & 14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-7\\-4\\-17\\-11\end{matrix}\right]. 
+ \end{align*}
+N119
+\begin{align*}
+ A = \left[\begin{matrix}-8 & 9 & 1 & 2\\9 & 0 & -9 & -3\\2 & 16 & -17 & 4\\-7 & 16 & -8 & 7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\-9\\-26\\-12\end{matrix}\right]. 
+ \end{align*}
+N120
+\begin{align*}
+ A = \left[\begin{matrix}3 & -6 & 8 & -4\\0 & -8 & -8 & -3\\0 & -13 & -12 & -7\\0 & -5 & -4 & -4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-3\\-5\\-1\end{matrix}\right]. 
+ \end{align*}
+N121
+\begin{align*}
+ A = \left[\begin{matrix}-9 & 6 & 2 & 4\\0 & -7 & 7 & -8\\-15 & -8 & 11 & -8\\-15 & -1 & 4 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-8\\-8\\-26\\-13\end{matrix}\right]. 
+ \end{align*}
+N122
+\begin{align*}
+ A = \left[\begin{matrix}-8 & -5 & -7 & -5\\-4 & -2 & 9 & 6\\-23 & -9 & 4 & 0\\-19 & -7 & -5 & -6\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-4\\-7\\-13\\-5\end{matrix}\right]. 
+ \end{align*}
+N123
+\begin{align*}
+ A = \left[\begin{matrix}-8 & 0 & 4 & 8\\5 & 9 & -4 & 9\\11 & 12 & -9 & 34\\6 & 3 & -5 & 25\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\0\\4\\8\end{matrix}\right]. 
+ \end{align*}
+N124
+\begin{align*}
+ A = \left[\begin{matrix}6 & 8 & 9 & 5\\5 & -1 & 3 & 6\\16 & 9 & 11 & 21\\11 & 10 & 8 & 15\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\-4\\-7\\1\end{matrix}\right]. 
+ \end{align*}
+N125
+\begin{align*}
+ A = \left[\begin{matrix}4 & 1 & 2 & -4\\-8 & 4 & 6 & -9\\-14 & 2 & 6 & -14\\-6 & -2 & 0 & -5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}8\\1\\19\\19\end{matrix}\right]. 
+ \end{align*}
+N126
+\begin{align*}
+ A = \left[\begin{matrix}7 & 2 & 6 & -4\\4 & -4 & -9 & 7\\15 & 2 & -15 & 10\\11 & 6 & -6 & 3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}1\\-9\\-15\\-5\end{matrix}\right]. 
+ \end{align*}
+N127
+\begin{align*}
+ A = \left[\begin{matrix}-6 & -2 & -4 & -1\\-2 & 7 & 3 & -3\\-10 & 18 & -5 & -6\\-8 & 11 & -8 & -3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}6\\-2\\11\\17\end{matrix}\right]. 
+ \end{align*}
+N128
+\begin{align*}
+ A = \left[\begin{matrix}-9 & -2 & 8 & -8\\1 & 3 & -9 & 0\\-6 & -5 & -16 & -5\\-7 & -8 & -7 & -5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}5\\1\\1\\2\end{matrix}\right]. 
+ \end{align*}
+N129
+\begin{align*}
+ A = \left[\begin{matrix}-5 & 2 & 7 & 4\\0 & -1 & -3 & -9\\3 & -9 & -6 & -23\\3 & -8 & -3 & -14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}7\\-9\\-13\\-2\end{matrix}\right]. 
+ \end{align*}
+N130
+\begin{align*}
+ A = \left[\begin{matrix}8 & 8 & 6 & 3\\-2 & -1 & 3 & -8\\-1 & 14 & 17 & -8\\1 & 15 & 14 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\2\\-1\\2\end{matrix}\right]. 
+ \end{align*}
+N131
+\begin{align*}
+ A = \left[\begin{matrix}5 & 8 & -6 & 1\\-4 & 0 & -5 & 7\\6 & 9 & -15 & 15\\10 & 9 & -10 & 8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\-8\\-9\\2\end{matrix}\right]. 
+ \end{align*}
+N132
+\begin{align*}
+ A = \left[\begin{matrix}4 & -9 & 6 & 8\\9 & 1 & -3 & 7\\18 & -13 & -4 & 21\\9 & -14 & -1 & 14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\8\\23\\19\end{matrix}\right]. 
+ \end{align*}
+N133
+\begin{align*}
+ A = \left[\begin{matrix}-5 & -5 & 5 & 8\\8 & 0 & 3 & -4\\14 & -4 & 6 & -4\\6 & -4 & 3 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-5\\-4\\-13\\-3\end{matrix}\right]. 
+ \end{align*}
+N134
+\begin{align*}
+ A = \left[\begin{matrix}-3 & -6 & -8 & 2\\-3 & 9 & 2 & -9\\-15 & 3 & 1 & -7\\-12 & -6 & -1 & 2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\-7\\-18\\-5\end{matrix}\right]. 
+ \end{align*}
+N135
+\begin{align*}
+ A = \left[\begin{matrix}4 & 3 & -1 & 6\\-9 & -4 & -8 & 7\\-16 & 1 & -8 & 26\\-7 & 5 & 0 & 19\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\-6\\-6\\4\end{matrix}\right]. 
+ \end{align*}
+N136
+\begin{align*}
+ A = \left[\begin{matrix}8 & -8 & -6 & 4\\-9 & 1 & 4 & -4\\-16 & -1 & -4 & -13\\-7 & -2 & -8 & -9\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-3\\8\\17\\13\end{matrix}\right]. 
+ \end{align*}
+N137
+\begin{align*}
+ A = \left[\begin{matrix}6 & -6 & -5 & -1\\-1 & 5 & 3 & 6\\7 & 12 & 7 & 11\\8 & 7 & 4 & 5\end{matrix}\right],
+\qquad b = \left[\begin{matrix}7\\5\\15\\12\end{matrix}\right]. 
+ \end{align*}
+N138
+\begin{align*}
+ A = \left[\begin{matrix}-5 & 2 & -7 & -2\\4 & -7 & 9 & -3\\10 & -15 & 6 & -14\\6 & -8 & -3 & -11\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-4\\6\\9\\8\end{matrix}\right]. 
+ \end{align*}
+N139
+\begin{align*}
+ A = \left[\begin{matrix}-3 & -8 & 3 & -6\\9 & -2 & 6 & 2\\14 & -16 & 15 & 3\\5 & -14 & 9 & 1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}3\\8\\14\\11\end{matrix}\right]. 
+ \end{align*}
+N140
+\begin{align*}
+ A = \left[\begin{matrix}-5 & 5 & -5 & -4\\8 & -5 & 5 & -3\\18 & -11 & 8 & -13\\10 & -6 & 3 & -10\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-6\\4\\-3\\-1\end{matrix}\right]. 
+ \end{align*}
+N141
+\begin{align*}
+ A = \left[\begin{matrix}-6 & -6 & 3 & 1\\1 & -6 & 8 & 7\\4 & -9 & 12 & 14\\3 & -3 & 4 & 7\end{matrix}\right],
+\qquad b = \left[\begin{matrix}1\\-2\\-2\\4\end{matrix}\right]. 
+ \end{align*}
+N142
+\begin{align*}
+ A = \left[\begin{matrix}8 & 3 & 5 & -1\\-3 & 3 & 1 & 1\\-3 & 2 & 12 & 0\\0 & -1 & 11 & -1\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\-5\\-10\\0\end{matrix}\right]. 
+ \end{align*}
+N143
+\begin{align*}
+ A = \left[\begin{matrix}5 & 0 & 2 & 3\\1 & -6 & -1 & -3\\-2 & -19 & 9 & -12\\-3 & -13 & 10 & -9\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-7\\-2\\-17\\-12\end{matrix}\right]. 
+ \end{align*}
+N144
+\begin{align*}
+ A = \left[\begin{matrix}-6 & 5 & -3 & 2\\7 & 9 & -3 & 9\\15 & 18 & -6 & 17\\8 & 9 & -3 & 8\end{matrix}\right],
+\qquad b = \left[\begin{matrix}1\\8\\12\\7\end{matrix}\right]. 
+ \end{align*}
+N145
+\begin{align*}
+ A = \left[\begin{matrix}7 & 2 & -8 & -1\\-4 & -9 & 5 & -4\\-7 & -20 & -6 & -16\\-3 & -11 & -11 & -12\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-4\\7\\17\\12\end{matrix}\right]. 
+ \end{align*}
+N146
+\begin{align*}
+ A = \left[\begin{matrix}-4 & 0 & 7 & 1\\3 & -7 & 1 & 0\\-7 & -17 & 8 & 4\\-10 & -10 & 7 & 4\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-2\\6\\15\\10\end{matrix}\right]. 
+ \end{align*}
+N147
+\begin{align*}
+ A = \left[\begin{matrix}-7 & -9 & -7 & -4\\-1 & -2 & 0 & 0\\-11 & -11 & -11 & -3\\-10 & -9 & -11 & -3\end{matrix}\right],
+\qquad b = \left[\begin{matrix}4\\6\\24\\23\end{matrix}\right]. 
+ \end{align*}
+N148
+\begin{align*}
+ A = \left[\begin{matrix}-5 & 1 & -1 & 5\\-9 & -2 & 2 & 3\\-30 & -7 & 6 & 17\\-21 & -5 & 4 & 14\end{matrix}\right],
+\qquad b = \left[\begin{matrix}9\\6\\28\\23\end{matrix}\right]. 
+ \end{align*}
+N149
+\begin{align*}
+ A = \left[\begin{matrix}-5 & 6 & 0 & -2\\1 & -4 & 6 & -4\\-9 & -4 & 7 & -6\\-10 & 0 & 1 & -2\end{matrix}\right],
+\qquad b = \left[\begin{matrix}-1\\-5\\-4\\3\end{matrix}\right]. 
+ \end{align*}
+N150
+\begin{align*}
+ A = \left[\begin{matrix}8 & -7 & -4 & 7\\-2 & -6 & -7 & -2\\3 & -24 & -14 & -2\\5 & -18 & -7 & 0\end{matrix}\right],
+\qquad b = \left[\begin{matrix}4\\8\\20\\15\end{matrix}\right]. 
+ \end{align*}
+\end{document}
